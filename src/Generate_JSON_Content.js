@@ -46,8 +46,6 @@ function GenerateTransactionList(TransactionsAmount) {
 
 	localStorage.setItem('testObject', TransactionsArray);
 	var retrievedObject = localStorage.getItem('testObject');
-	//GenerateResultsTable(retrievedObject)
-
 }
 
 GenerateTransactionList(AmountOfTranscations)
