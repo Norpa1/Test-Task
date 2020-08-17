@@ -1,20 +1,22 @@
 .TABLEcontainer {
 	display: grid;
     place-items: center;
- 	text-align:center;
+	text-align:center;
+ 	border-radius:15px;
+ 	border:2px solid grey;
+	position: relative;
+	top:100px;
+	width:1000px;
+	margin:auto;
 .Wrapper {
-  border:2px solid grey;
   background-color: snow;
-  height:400px;
-  width:1000px;
-  margin:auto;
-  border-radius:15px;
-  position:relative;
-  top:50px;
+  height:100%;
+  width:980px;
   display:flex;
   flex-direction:column;
   align-items: center;
   justify-content: center;
+}
   div {
    display:inline-block;
    flex-direction:row;
@@ -25,47 +27,36 @@
   text-align:center;	 
   width:230px;
   height:40px;
- 	display: flex;
- 	align-items: center;
-	flex-direction: column;
-	justify-content: center;
-	background-color:#C84C41;
-	color:white;
-	font:16px bold verdana;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color:#C84C41;
+  color:white;
+  font:13px verdana;
   }
 .TableTile {
 	border:0.5px solid #ddd;
  	text-align:center;	 
  	width:230px;
+ 	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+}
  
- 	align-items: center;
-	flex-direction: row;
-	justify-content: center;
 }
-}
-}
-#Button1 {
-	border-radius:10px;
-	border: 1px solid black;
-	width:60px;
-	heigth:20px;
- 	max-height:40px;
- 	max-width: 160px;
- 	display: flex;
- 	align-items: center;
-	flex-direction: row;
-	justify-content: center;
-	cursor:pointer;
-	background-color:snow;
-	user-select:none;	
 
-}
-#Button1:hover {
-	background-color:white;	
-}
+
 .Button:hover {
-	background-color: #0078E1;	
+	background-color: #0078E1;
+	box-shadow: 2px -2px 16px 4px rgba(72,170,230,0.56);	
 }
+.ButtonActive:hover {
+	background-color: #FFD12C;	
+	box-shadow: 2px -2px 12px 4px rgba(255,165,0,0.26);
+}
+ 
+
 .Button, .ButtonActive {
 	border-radius:10px;
 	width: 220px;
@@ -85,6 +76,7 @@
 	margin-top:10px;
 	user-select: none;
 	background-color: #48AAE6;
+	margin-bottom: 10px;
 }
 .ButtonActive {
 	background-color:orange;
