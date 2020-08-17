@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react' 
 import './App.scss';
 import Table from "./TableComponents/WholefTable.js"
-import TableRow from "./TableComponents/TileOfTable.js"
-import data from "./demo_json.json"
-
+import data from "./demo_json.json" 
+import TableTitle from "./TableComponents/TitleOf.js";
 
 const Filters = ["Доход","Расход","За последний месяц","Более 1000 рублей"]
 var NewTrancastionsArray = data.results
 
-
-function TableFilters(o) {
+function TableFilters (o) { 
  	
 	var today = new Date();
 
@@ -34,12 +32,12 @@ function TableFilters(o) {
 
  	for (var i=0;i<ActiveFilters.length;i++) {
 
- 	if (ActiveFilters[i].innerHTML == Filters[0]) {
+ 	if (ActiveFilters[i].innerHTML == Filters[0]){
  		var Condition1 = true 
  		WholeCondition = WholeCondition +ConditionText1
  	}
 
- 	if (ActiveFilters[i].innerHTML == Filters[1]) {
+ 	if (ActiveFilters[i].innerHTML == Filters[1]){ 
  		var Condition2 = true	
 		WholeCondition = WholeCondition +ConditionText2
  	}
@@ -49,14 +47,13 @@ function TableFilters(o) {
 		WholeCondition = WholeCondition +ConditionText3
  	}
 
- 	if (ActiveFilters[i].innerHTML == Filters[3]) {
+ 	if (ActiveFilters[i].innerHTML == Filters[3]){ 
  		var Condition4 = true	
 		WholeCondition = WholeCondition + ConditionText4
  	}
  
  	}
- 
- 
+
  	WholeCondition = WholeCondition.replace(/\) /g, ')&&').replace(/.$/,"").replace(/.$/,"")
  	if ( Condition1 == true && Condition2 == true) {
  		WholeCondition = WholeCondition.replace('&&' ,'||').replace(WholeCondition[0], WholeCondition[0]+"(").replace('"Расход")','"Расход"))' 	)
@@ -80,7 +77,6 @@ function TableFilters(o) {
 }
 
 
-
 class App extends React.Component {
  	
 	constructor() {
@@ -91,9 +87,7 @@ class App extends React.Component {
 			isShow:false
 		}
 	}
-
-	TableFilter=(e)=>{
- 		
+	TableFilter = e =>{
 		this.setState({
       		TransactionsArray: TableFilters(e),
       		isShow:false
@@ -103,24 +97,25 @@ class App extends React.Component {
  	render() {
  	let TransactionsArray = this.state.TransactionsArray
 	return (
-    <div className='TABLEcontainer'> 
-		<div className="Wrapper">
-			<Table TransactionsArray={TransactionsArray} />	
-			<div>
+    <div className='TABLEcontainer'>
+		<div className="Wrapper">	
+		    <div className="row">
 				<div onClick={e => this.TableFilter(e)} className="Button" >{Filters[0]}</div>
 				<div onClick={e => this.TableFilter(e)} className="Button" >{Filters[1]}</div>
 				<div onClick={e => this.TableFilter(e)} className="Button" >{Filters[2]}</div>
 				<div onClick={e => this.TableFilter(e)} className="Button" >{Filters[3]}</div>			 
-			</div>
-
+		    </div>
+		    <TableTitle/>	 
 		</div>
-	</div>
-
+		<div className="Wrapper">
+			<Table TransactionsArray={TransactionsArray} />	
+		</div>
+</div>
 	)
 }
 }
 
-
+ 
 export default App;
 
  
